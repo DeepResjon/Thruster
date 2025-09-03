@@ -3,10 +3,11 @@
 int Control(int altitude) {
   int thruster = 0;
 
-  if (altitude > 100 && altitude <= 0) {
+  if (altitude > 100 || altitude <= 0) {
     thruster = 0;
-  } else if (altitude <= 100 && altitude > 0)
+  } else if (altitude <= 100 && altitude > 0) {
     thruster = 1;
+  }
 
   return thruster;
 }
@@ -27,4 +28,8 @@ int main(void) {
   Test(50);
   Test(0);
   Test(-1);
+
+  int thrust = Control(0);
+
+  printf("%d", thrust);
 }
